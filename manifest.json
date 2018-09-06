@@ -2,31 +2,24 @@
   "name": "Tinder Keyword Swiper",
   "version": "1.0.0",
   "manifest_version": 2,
-  "description": "Selective Swiper automatically swipes right on Tinder profiles when it detects a keyword match.",
+  "description": "Automatically swipe right on Tinder profiles when a keyword match is detected.",
   "homepage_url": "https://jasonbenn.com/post/i-set-up-tinder-web-to-swipe-right-on-cool-people-automatically",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
-  "default_locale": "en",
-  "options_page": "src/options/index.html",
+  "options_page": "options.html",
   "page_action": {
     "default_icon": "icons/icon19.png",
     "default_title": "Tinder Keyword Swiper",
-    "default_popup": "src/page_action/page_action.html"
+    "default_popup": "page_action.html"
   },
-  "permissions": [
-    "https://tinder.com/app/recs"
-  ],
-  "content_scripts": [
-    {
-      "matches": [
-        "https://www.google.com/*"
-      ],
-      "js": [
-        "src/inject/inject.js"
-      ]
-    }
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "permissions" : [
+    "declarativeContent"
   ]
 }
