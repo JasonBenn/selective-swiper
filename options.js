@@ -1,4 +1,4 @@
-var defaultKeywordString = "harvard stanford phd\nfounder CEO CTO artist writer composer\nphysics ai economics math quantum philosophy"
+var defaultKeywordString = "harvard stanford mit phd\nfounder CEO CTO composer\nphysics ai economics math quantum philosophy"
 
 chrome.storage.sync.get('keywordString', data => {
   var textArea = document.getElementById('keywordString')
