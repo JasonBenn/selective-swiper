@@ -14,4 +14,4 @@ See [this blog post](https://jasonbenn.com/post/i-set-up-tinder-web-to-swipe-rig
 
 ## Known bugs
 
-1. Top secret
+* Exist
