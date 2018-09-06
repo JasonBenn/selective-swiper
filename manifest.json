@@ -20,6 +20,8 @@
     "persistent": false
   },
   "permissions" : [
+    "activeTab",
+    "storage",
     "declarativeContent"
   ]
 }
