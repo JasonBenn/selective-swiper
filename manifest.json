@@ -11,7 +11,7 @@
   },
   "options_page": "options.html",
   "page_action": {
-    "default_icon": "icons/icon19.png",
+    "default_icon": "icons/icon16.png",
     "default_title": "Tinder Keyword Swiper",
     "default_popup": "page_action.html"
   },

@@ -1,5 +1,5 @@
-chrome.storage.sync.get('keywords', data => {
-  var keywords = data.keywords
+chrome.storage.sync.get('keywordString', data => {
+  var keywords = data.keywordString.split(/[\n ]/).filter(x => x)
   console.log('keywords:', keywords)
   var rightSwipes = 0
   var leftSwipes = 0
