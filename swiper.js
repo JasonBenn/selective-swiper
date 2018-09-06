@@ -1,5 +1,6 @@
 chrome.storage.sync.get('keywords', data => {
   var keywords = data.keywords
+  console.log('keywords:', keywords)
   var rightSwipes = 0
   var leftSwipes = 0
   var interval
