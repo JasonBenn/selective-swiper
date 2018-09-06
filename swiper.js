@@ -3,7 +3,6 @@ chrome.storage.sync.get('keywordString', data => {
   console.log('keywords:', keywords)
   var rightSwipes = 0
   var leftSwipes = 0
-  var interval
 
   var outOfSwipesModal = () => {
     return Array.from(document.getElementsByClassName("button")).find(el => el.textContent.toLowerCase().includes("no thanks"))
@@ -20,7 +19,7 @@ chrome.storage.sync.get('keywordString', data => {
   var openProfile = () => {
     var profile = document.getElementsByClassName("StretchedBox StretchedBox::a")[0]
     if (!profile) {
-      setTimeout(openProfile, 500)
+      setTimeout(openProfile, Math.random() * 500)
     } else {
       profile.click()
     }
@@ -36,22 +35,34 @@ chrome.storage.sync.get('keywordString', data => {
       return RegExp(keyword).exec(text)
     })
     
-    if (match) {
-      document.getElementsByClassName("recsGamepad__button--like")[0].click()
+    var nextSwipeTimeout = Math.max(Math.random() * 200 + 400, Math.random() * 5000)
 
-      if (outOfSwipesModal()) {
-        clearInterval(interval)
-        alert("Out of swipes - try again tomorrow!\n\nStats:\nRight swipes: " + rightSwipes + "\nLeft swipes: " + leftSwipes)
+    if (match) {
+
+      var button = document.getElementsByClassName("recsGamepad__button--like")[0]
+      if (button) {
+        button.click()
+        rightSwipes += 1
       }
 
-      rightSwipes += 1
+      if (outOfSwipesModal()) {
+        rightSwipes -= 1
+        alert("Out of swipes - try again tomorrow!\n\nStats:\nRight swipes: " + rightSwipes + "\nLeft swipes: " + leftSwipes)
+      } else {
+        setTimeout(selectivelySwipe.bind(this), nextSwipeTimeout)
+      }
+
     } else {
-      document.getElementsByClassName("recsGamepad__button--dislike")[0].click()
-      leftSwipes += 1
+      var button = document.getElementsByClassName("recsGamepad__button--dislike")[0]
+      if (button) {
+        button.click()
+        leftSwipes += 1
+      }
+      setTimeout(selectivelySwipe.bind(this), nextSwipeTimeout)
     }
 
   }
 
-  interval = setInterval(selectivelySwipe, 1000)
+  selectivelySwipe()
 
 })
