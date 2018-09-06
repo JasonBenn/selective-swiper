@@ -1,9 +1,9 @@
 {
-  "name": "CHANGE THIS : Extension boilerplate",
-  "version": "0.0.1",
+  "name": "Tinder Keyword Swiper",
+  "version": "1.0.0",
   "manifest_version": 2,
-  "description": "This extension was created with the awesome extensionizr.com",
-  "homepage_url": "http://extensionizr.com",
+  "description": "Selective Swiper automatically swipes right on Tinder profiles when it detects a keyword match.",
+  "homepage_url": "https://jasonbenn.com/post/i-set-up-tinder-web-to-swipe-right-on-cool-people-automatically",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
@@ -13,7 +13,7 @@
   "options_page": "src/options/index.html",
   "page_action": {
     "default_icon": "icons/icon19.png",
-    "default_title": "page action demo",
+    "default_title": "Tinder Keyword Swiper",
     "default_popup": "src/page_action/page_action.html"
   },
   "permissions": [
